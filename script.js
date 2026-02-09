@@ -1,43 +1,29 @@
-var tasks = [
-  { id: 1, name: "Learn HTML" },
-  { id: 2, name: "Learn CSS" },
+let taskInput = document.getElementById("newTask");
+let button = document.getElementById("addButton");
+let taskList = document.getElementById("taskList");
+let clearButton = document.getElementById("clearButton");
+
+let todos = [
+  { id: 1, text: "hello world" },
+  { id: 2, text: "learn javascript" },
 ];
-
-var nextId = 3;
-
-var input = document.getElementById("new-task");
-var button = document.getElementById("add-task-button");
-var list = document.getElementById("task-list");
-
-function showTasks() {
-  list.innerHTML = "";
-
-  for (var i = 0; i < tasks.length; i++) {
-    var li = document.createElement("li");
-    li.innerText = tasks[i].name + " [ID: " + tasks[i].id + "]";
-    list.appendChild(li);
+function todosList() {
+  let task = "";
+  for (i = 0; i < todos.length; i++) {
+    task += todos[i].id + "." + todos[i].text + "<br>";
   }
+  taskList.innerHTML = task;
+  taskInput.value = "";
 }
-
-function addTask() {
-  var text = input.value;
-
-  if (text === "") {
+button.onclick = function () {
+  task = taskInput.value;
+  if (task === "") {
     return;
   }
 
-  var newTask = {
-    id: nextId,
-    name: text,
-  };
+  todos.push({ id: todos.length + 1, text: task });
+  taskInput.value = "";
+  todosList();
+};
 
-  tasks.push(newTask);
-  nextId = nextId + 1;
-
-  input.value = "";
-  showTasks();
-}
-
-button.onclick = addTask;
-
-showTasks();
+todosList();
