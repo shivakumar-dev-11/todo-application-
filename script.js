@@ -25,5 +25,12 @@ button.onclick = function () {
   taskInput.value = "";
   todosList();
 };
+clearButton.onclick = function () {
+  todos = [
+    { id: 1, text: "hello world" },
+    { id: 2, text: "learn javascript" },
+  ];
+  todosList();
+};
 
 todosList();
