@@ -10,11 +10,20 @@ let todos = [
 function todosList() {
   let task = "";
   for (i = 0; i < todos.length; i++) {
-    task += todos[i].id + "." + todos[i].text + "<br>";
+    task +=
+      todos[i].id +
+      "." +
+      todos[i].text +
+      "<br>" +
+      "<span><button type='button' onclick='removeTodo(" +
+      todos[i].id +
+      ")'>Delete</button></span>" +
+      "<br>";
   }
   taskList.innerHTML = task;
   taskInput.value = "";
 }
+
 button.onclick = function () {
   task = taskInput.value;
   if (task === "") {
@@ -26,11 +35,14 @@ button.onclick = function () {
   todosList();
 };
 clearButton.onclick = function () {
-  todos = [
-    { id: 1, text: "hello world" },
-    { id: 2, text: "learn javascript" },
-  ];
+  todos = [];
   todosList();
 };
-
 todosList();
+
+function removeTodo(id) {
+  todos = todos.filter(function (subject) {
+    return subject.id !== id;
+  });
+  todosList();
+}
