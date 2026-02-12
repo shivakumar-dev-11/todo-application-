@@ -18,7 +18,10 @@ function todosList() {
       "<span><button type='button' onclick='removeTodo(" +
       todos[i].id +
       ")'>Delete</button></span>" +
-      "<br>";
+      "<br>" +
+      "<span>  <button onclick='updateTodo(" +
+      todos[i].id +
+      ")'>Update</button></span>";
   }
   taskList.innerHTML = task;
   taskInput.value = "";
@@ -46,3 +49,20 @@ function removeTodo(id) {
   });
   todosList();
 }
+
+// update task
+function updateTodo(id) {
+  for (let i = 0; i < todos.length; i++) {
+    if (todos[i].id === id) {
+      newTask = prompt("update new task ", todos[i].text);
+      todos[i].text = newTask;
+      if (newTask === "" || newTask == null) {
+        return alert("enter task to update ");
+      }
+    }
+
+    todosList();
+  }
+}
+
+todosList();
