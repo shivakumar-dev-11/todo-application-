@@ -1,79 +1,84 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>todo list</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 20px;
-      }
 
-      h1 {
-        color: #333;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>todo list</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
 
-      input[type="text"] {
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        width: 300px;
-      }
+    h1 {
+      color: #333;
+    }
 
-      button {
-        padding: 10px 15px;
-        background-color: #5cb85c;
-        border: none;
-        border-radius: 4px;
-        color: white;
-        cursor: pointer;
-      }
+    input[type="text"] {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 300px;
+    }
 
-      button:hover {
-        background-color: #4cae4c;
-      }
+    button {
+      padding: 10px 15px;
+      background-color: #5cb85c;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      cursor: pointer;
+    }
 
-      ul {
-        list-style-type: none;
-        padding: 0;
-      }
+    button:hover {
+      background-color: #4cae4c;
+    }
 
-      li {
-        background: white;
-        margin: 5px 0;
-        padding: 10px;
-        border: 1px solid #eee;
-        border-radius: 4px;
-      }
-      .container {
-        margin-top: 600px;
-        max-width: 600px;
-        margin: auto;
-        background: white;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
-      .body {
-        background-color: #e0f7fa;
-      }
-    </style>
-  </head>
-  <body class="body">
-    <div class="container">
-      <h1>TODO APPLICATION</h1>
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
 
-      <div>
-        <input id="newTask" type="text" placeholder="Add new task..." />
-        <button type="submit" id="addButton">Add Task</button>
-        <button type="reset" id="clearButton">Clear Tasks</button>
-        <ul id="taskList"></ul>
+    li {
+      background: white;
+      margin: 5px 0;
+      padding: 10px;
+      border: 1px solid #eee;
+      border-radius: 4px;
+    }
 
-        <script src="script.js"></script>
-      </div>
+    .container {
+      margin-top: 600px;
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .body {
+      background-color: #e0f7fa;
+    }
+  </style>
+</head>
+
+<body class="body">
+  <div class="container">
+    <h1>TODO APPLICATION</h1>
+
+    <div>
+      <input id="newTask" type="text" placeholder="Add new task..." />
+      <button type="submit" id="addButton">Add Task</button>
+      <button type="reset" id="clearButton">Clear Tasks</button>
+      <ul id="taskList"></ul>
+
+      <script src="script.js"></script>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
