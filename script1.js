@@ -19,7 +19,10 @@ function todosList() {
       "<span><button type='button' onclick='removeTodo(" +
       todos[i].id +
       ")'>Delete</button></span>" +
-      "<br>";
+      "<br>" +
+      "<button onclick='editTodo(" +
+      todos[i].id +
+      ")'>Edit</button>";
   }
   taskList.innerHTML = task;
   taskInput.value = "";
@@ -27,13 +30,26 @@ function todosList() {
 
 //create
 
+let editMode = false;
+let editId = null;
+
 button.onclick = function () {
   task = taskInput.value;
   if (task === "") {
     return;
   }
-
-  todos.push({ id: todos.length + 1, text: task });
+  if (editMode) {
+    for (let i = 0; i < todos.length; i++) {
+      if (todos[i].id == editId) {
+        todos[i].text = task;
+      }
+    }
+    editMode = false;
+    editId = null;
+    button.innerText = "add";
+  } else {
+    todos.push({ id: todos.length + 1, text: task });
+  }
   taskInput.value = "";
   todosList();
 };
@@ -44,3 +60,16 @@ function removeTodo(id) {
   });
   todosList();
 }
+
+//update functionality
+function editTodo(id) {
+  editMode = true;
+  editId = id;
+  for (let i = 0; i < todos.length; i++) {
+    if (todos[i].id == id) {
+      taskInput.value = todos[i].text;
+    }
+  }
+  button.innerText = "save";
+}
+todosList();
